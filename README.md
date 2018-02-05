@@ -1,1 +1,1 @@
-# banner-html5
+> Project creating HTML5 animated banners
