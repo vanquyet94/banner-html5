@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+
+    <title>CGV</title>
+    <meta name="ad.size" content="width=336,height=280">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.18.0_499ba64a23378545748ff12d372e59e9_min.js"></script>
+    <script type="text/javascript" src="https://ssl-cdn.media.innity.net/lib/html5.js"></script>
+    <style>
+      body{
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+      }
+      #banner{
+        border: 1px solid #000;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+        width: 336px;
+        height: 280px;
+      }
+      #banner div{
+      position: absolute;
+      background-repeat:none;
+      background-position: center center;
+      width: 336px;
+      height: 280px;
+      opacity: 0;
+      background-size: cover; 
+    }
+      @keyframes scale {
+		0% {transform: scale(1);}
+		25% {transform: scale(0.8);}
+		50% {transform: scale(1);}
+		75% {transform: scale(0.8);}
+		100% {transform: scale(1);}
+    }
+
+      #banner #img1{
+        background-image: url(img1.jpg);
+        width: 336px;
+        height: 280px;
+      }
+      #banner #img2{
+        background-image: url(img2.png);
+        width: 336px;
+        height: 280px;
+      }
+      #banner #img3{
+        background-image: url(img3.png);
+        width: 336px;
+        height: 280px;
+      }
+      #banner #img4{
+        background-image: url(img4.png);
+        width: 336px;
+        height: 280px;
+      }
+      #banner #img5{
+        background-image: url(img5.png);
+        width: 336px;
+        height: 280px;
+      }
+      #banner #img6{
+       background-image: url(img6.png);
+	   height: 65px;
+		width: 228px;
+	   top:48px;
+	   left:65px;
+	   -webkit-animation: scale 3s infinite linear;
+		animation: scale 3s infinite linear;
+      }
+
+      #banner #img5_1{
+        background-image: url(img5_1.png);
+        width: 336px;
+        height: 280px;
+      }
+
+      #btn_click {width:100%;height:100%;position:absolute;}
+      #btn-replay{
+        background: url(replace.png) center center no-repeat;
+        background-size: cover;
+        position: absolute;
+        bottom: 29px;
+        left: 6px;
+        z-index: 2;
+        width: 15px;
+        height: 15px;
+        opacity: 0;
+      }
+    </style>
+    <script>
+    function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]"); var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search); return results === null ? "" :
+    decodeURIComponent(results[1].replace(/\+/g, " ")); 
+    }
+  </script>
+  </head>
+  <body onload="ad_content()">
+        <div id="banner">
+        <div id="img1"></div>
+        <div id="img2"></div>
+        <div id="img3"></div>
+        <div id="img4"></div>
+        <div id="img5"></div>
+        <div id="img6"></div>
+        <div id="img5_1"></div>
+      </a>
+      <a id="btn-replay" onclick="replayBanner()" title="replace"></a>
+      <a id="btn_click" href="javascript:void(0)" onclick="InnityHTMLAd.click({clickTAG:'clickTAG'})"></a>
+      <a id="btn_click_logo" target="_blank" href="https://www.innity.com"><img src="logo_innity.png"/></a>
+    </div>
+	<style>
+	#btn_click_logo img{
+		width:16px;
+	}
+	#btn_click_logo{
+		position:absolute;
+		
+	}
+	</style>
+  <script>
+
+    function replayBanner() {
+      window.location.reload();
+    }
+    function ad_content() {
+      var tll = new TimelineLite(),
+        tll = new TimelineLite(),
+        tllReplace = new TimelineLite({onComplete: replace}),
+        effect = new TimelineLite(),
+        img1 = document.getElementById("img1"),
+        img2 = document.getElementById("img2"),
+        img3 = document.getElementById("img3"),
+        img4 = document.getElementById("img4"),
+        img5 = document.getElementById("img5"),
+        img6 = document.getElementById("img6"),
+        img5_1 = document.getElementById("img5_1"),
+        replay  = document.getElementById("btn-replay");
+      
+      replay.onmouseover=function(){
+        tllReplace.kill({rotation: true, transformOrigin: true}).to(replay, 0.5, {rotation:360, transformOrigin:"center center", ease: Power4.easeOut});
+      };
+    
+      function stopCss3(){
+          img6.style.webkitAnimationPlayState="paused";
+          img6.style.animation="paused";
+        } 
+
+      function replace(){
+        replay.onmouseleave=function(){
+          tllReplace.kill({rotation: true, transformOrigin: true}).to(replay, 0.5, {rotation:0, transformOrigin:"center center", ease: Power4.easeOut});
+        };
+      }
+      
+      tll.fromTo(img1, 0.5, {center: 0}, {center: 1, autoAlpha: 1, ease: Sine.easeOut, y: 0})
+          .fromTo(img2, 0.3, {autoAlpha:0}, {autoAlpha: 1, ease: Sine.easeOut, y: 0})
+          .fromTo(img3, 0.3, {autoAlpha: 0}, {autoAlpha: 1, ease: Circ.easeOut, y: 0}, '-=0.3')
+          .fromTo(img4, 0.3, {autoAlpha: 0}, {autoAlpha: 1, ease: Power0.easeNone, y: 0}, '-=0.3')
+          //.fromTo(img6, 0.3, {scale: 1}, {scale: 1, autoAlpha: 1, ease: Power0.easeNone, y: 0})
+	      .fromTo(img5, 0.5, {right: "-250%"}, {right:0, autoAlpha: 1})
+          .fromTo(img5_1, 1, {left: "-100%"}, {left:0, autoAlpha: 1})
+          .fromTo(img6, 0.3,{autoAlpha: 0, scale: .3}, {autoAlpha: 1,scale: 1, rotation:360, ease: Power4.easeIn})
+          .fromTo(replay, 0.5, {autoAlpha: 0}, { autoAlpha: 1})
+              }
+  </script>
+  <noscript>JavaScript is off. Please enable to view full site.</noscript>
+
+  </body>
+</html>
